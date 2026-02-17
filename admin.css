@@ -1,0 +1,176 @@
+body{
+  font-family:'Poppins', sans-serif;
+  background:#f4f4f8;
+  padding:30px;
+}
+
+header{
+  background:linear-gradient(90deg,#6a00ff,#b300ff);
+  color:white;
+  padding:20px;
+  border-radius:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+button{
+  padding:8px 14px;
+  border:none;
+  background:#6a00ff;
+  color:white;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr auto;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+input, select{
+  padding:8px;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+th, td{
+  border:1px solid #ccc;
+  padding:10px;
+  text-align:center;
+}
+
+th{
+  background:#eee;
+}
+
+/* grafik*/
+.chart-box{
+  width: 100%;
+  max-width: 900px;
+  height: 350px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#chartPenjualan{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/*tampilin notif isi data*/
+.notif{
+  margin-top:10px;
+  padding:10px;
+  border-radius:6px;
+  font-weight:600;
+  display:none;
+}
+
+.notif.error{
+  background:#ffd6d6;
+  color:#a00000;
+}
+
+.notif.success{
+  background:#d6ffd6;
+  color:#006400;
+}
+
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.popup-box{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  text-align:center;
+  width:280px;
+  font-weight:600;
+  animation:pop 0.2s ease;
+}
+
+.popup-box button{
+  margin-top:15px;
+  padding:8px 20px;
+  border:none;
+  background:#6a0dad;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+@keyframes pop{
+  from{transform:scale(0.8);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 768px){
+
+  body{
+    padding:12px;
+  }
+
+  header{
+    flex-direction:column;
+    text-align:center;
+    gap:10px;
+  }
+
+  /* form jadi vertikal */
+  .form-row{
+    grid-template-columns:1fr;
+  }
+
+  button{
+    width:100%;
+  }
+
+  /* tabel scroll horizontal */
+  table{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+  th, td{
+    font-size:14px;
+    padding:8px;
+  }
+
+  /* grafik */
+  .chart-box{
+    height:250px;
+    padding:12px;
+  }
+
+  /* popup */
+  .popup-box{
+    width:90%;
+  }
+}
+

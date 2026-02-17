@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Admin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#eee;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.login-box{
+  background:#ddd;
+  width:450px;
+  padding:40px;
+  border-radius:25px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.2);
+}
+
+h1{
+  text-align:center;
+  margin-bottom:30px;
+  font-size:42px;
+}
+
+.input-group{
+  margin-bottom:25px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-bottom:2px solid #999;
+  background:transparent;
+  font-size:16px;
+  outline:none;
+}
+
+.error{
+  color:red;
+  font-size:14px;
+  margin-top:10px;
+  text-align:center;
+  display:none;
+}
+
+button{
+  width:100%;
+  margin-top:20px;
+  padding:15px;
+  border:none;
+  border-radius:30px;
+  font-size:22px;
+  font-weight:600;
+  color:white;
+  background:linear-gradient(90deg,#4b00ff,#9f00ff);
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+  <h1>Login</h1>
+
+  <div class="input-group">
+    <input type="text" id="username" placeholder="Masukkan Username">
+  </div>
+
+  <div class="input-group">
+    <input type="password" id="password" placeholder="Masukkan Password">
+  </div>
+
+  <div class="error" id="errorMsg">
+    Username or password wrong
+  </div>
+
+  <button onclick="login()">LOGIN</button>
+
+</div>
+
+<script>
+
+function login(){
+
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+  const error = document.getElementById("errorMsg");
+
+  if(user === "dino" && pass === "indonesia1945"){
+    window.location.href = "admin.html"; // halaman admin nanti
+  }else{
+    error.style.display = "block";
+  }
+
+}
+
+//untuk proteksi login admin /admin.html//
+function login(){
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  if(user === "dino" && pass === "indonesia1945"){
+    localStorage.setItem("adminLogin", "true"); // ✅ simpan session
+    window.location.href = "admin.html";
+  } else {
+    document.getElementById("error").innerText = "Username or password wrong";
+  }
+}
+
+</script>
+
+
+
+</body>
+</html>

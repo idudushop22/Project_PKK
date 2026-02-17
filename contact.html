@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Pataw Food</title>
+
+<link rel="stylesheet" href="contact.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">🍽️ Pataw Food</div>
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="food.html">Food</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="login-btn">Login Admin</a>
+  </div>
+</nav>
+
+<section class="contact-section">
+
+  <h2 class="contact-title">Hubungi Kami</h2>
+
+  <div class="contact-container">
+
+    <!-- KIRI -->
+    <div class="contact-info">
+      <h3>Informasi Toko</h3>
+      <div class="map">
+  <iframe
+    src="https://maps.google.com/maps?q=Pos%20Masuk%20Halim%20Squadron%201&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    width="100%"
+    height="300"
+    style="border:0;"
+    loading="lazy">
+  </iframe>
+</div>
+
+      <p>📍 Sekitar Pos Masuk Halim Squadron 1</p>
+      <p>📞 0881-1281-317</p>
+      <p>🕒 Pengiriman langsung bisa disekitar halim, Jakarta Timur</p>
+
+      <div class="social">
+        <a href="https://wa.me/628811281317">WhatsApp</a>
+        <a href="https://www.instagram.com/nasigoreng_pataw?igsh=MTlvbG9pZTZzcDhoZw==">Instagram</a>
+      </div>
+    </div>
+
+
+    <!-- KANAN -->
+<div class="contact-info">
+      <h3>Jika ada yang ingin ditanyakan, silahkan kirim pesan disini</h3>
+<form class="contact-form" onsubmit="sendWA(event)">
+  <input type="text" id="nama" placeholder="Nama kamu" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <textarea id="pesan" placeholder="Pesan kamu..." rows="5"></textarea>
+  <button type="submit">Kirim Pesan</button>
+</form>
+
+    <!--goggle maps-->
+
+
+
+
+  </div>
+
+</section>
+<script>
+function sendWA(event){
+  event.preventDefault();
+
+  const nama = document.getElementById("nama").value;
+  const email = document.getElementById("email").value;
+  const pesan = document.getElementById("pesan").value;
+
+  const message =
+`Halo Pataw Food!
+Nama: ${nama}
+Email: ${email}
+Pesan:
+${pesan}`;
+
+  const phone = "628811281317"; // GANTI nomor kamu
+  const url = `https://wa.me/628811281317?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin</title>
+
+<link rel="stylesheet" href="admin.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <h1>Dashboard Admin</h1>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<h3>Catatan Pesanan Berhasil</h3>
+
+<div class="form-row">
+  <input type="date" id="tanggal">
+  <input type="text" id="nama" placeholder="Nama pemesan">
+
+  <select id="menu">
+    <option>Nasi Goreng Biasa</option>
+    <option>Nasi Goreng Sosis</option>
+    <option>Mie Goreng Telor</option>
+    <option>Mie Goreng + Nasi</option>
+  </select>
+
+  <input type="number" id="jumlah" placeholder="Jumlah">
+  <input type="number" id="harga" placeholder="Harga">
+
+  <button onclick="tambah()">Tambah</button>
+  <div id="notif" class="notif"></div>
+</div>
+
+<br>
+
+<button onclick="exportData()">Export Backup</button>
+<input type="file" id="importFile" onchange="importData()">
+
+<br><br>
+
+<table border="1">
+<thead>
+<tr>
+<th>No</th>
+<th>Tanggal</th>
+<th>Nama</th>
+<th>Menu</th>
+<th>Jumlah</th>
+<th>Harga</th>
+<th>Aksi</th>
+</tr>
+</thead>
+
+<tbody id="tabel"></tbody>
+</table>
+
+<h3>Grafik Penjualan</h3>
+
+<div class="chart-box">
+  <canvas id="chartPenjualan"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="admin.js"></script>
+
+<!--tampilan notif isi semua data-->
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="popup-text"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+</body>
+</html>

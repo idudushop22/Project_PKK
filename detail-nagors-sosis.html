@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Pesanan - Nasgor Sosis</title>
+
+<link rel="stylesheet" href="./detail.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">🍽️ Pataw Food</div>
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="food.html">Food</a>
+    <a href="#">Contact</a>
+    <span class="login-btn">Login Admin</span>
+  </div>
+</nav>
+
+<section class="detail-container">
+
+  <h1>Nasi Goreng Sosis</h1>
+
+  <p class="desc">
+    Nasi goreng rumahan dengan tambahan sosis yang dimasak bersama racikan bumbu khas.<br> 
+    Setiap porsi menghadirkan rasa gurih hangat yang akrab dan memuaskan.
+  </p>
+
+  <div class="images">
+    <img src="image/nasgor sosis.jpeg">
+    <img src="image/Nasi gor sosis.jpeg">
+  </div>
+
+  <div class="order-box">
+
+    <label>Catatan Pesanan</label>
+    <input type="text" id="note" placeholder="Contoh: tambah telur, pedas sedikit">
+
+    <label>Jumlah</label>
+    <input type="number" id="qty" value="1" min="1">
+
+    <label>Total Harga (Rp)</label>
+    <input type="text" id="total" readonly>
+
+    <button onclick="sendWA()">Pesan Sekarang Via WhatsApp</button>
+
+  </div>
+
+</section>
+
+<script>
+
+const price = 13000; // ✅ harga nasgor sosis
+
+const qtyInput = document.getElementById("qty");
+const totalInput = document.getElementById("total");
+
+function updateTotal(){
+  const qty = qtyInput.value;
+  const total = qty * price;
+  totalInput.value = total.toLocaleString("id-ID");
+}
+
+qtyInput.addEventListener("input", updateTotal);
+updateTotal();
+
+function sendWA(){
+  const qty = qtyInput.value;
+  const note = document.getElementById("note").value;
+  const total = qty * price;
+
+  const message =
+`Halo Pataw Food saya mau pesan:
+Nasi Goreng Sosis
+Jumlah: ${qty}
+Catatan: ${note}
+Total: Rp ${total.toLocaleString("id-ID")}`;
+
+  const phone = "628811281317"; // GANTI NOMOR KAMU
+  const url = `https://wa.me/628811281317?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>
